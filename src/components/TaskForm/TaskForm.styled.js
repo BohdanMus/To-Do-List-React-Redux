@@ -16,7 +16,7 @@ export const TaskFormButton = styled(Button)`
   border-radius: 16px;
 
   &:hover {
-    background-color: #ff6347;
+    background-color: #ff8c00;
   }
 `;
 

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from '../../redux/taskActions';
 import { FilterButton, FilterWrapper } from './TaskFilter.styled';
@@ -6,30 +7,30 @@ const TaskFilter = () => {
   const filter = useSelector(state => state.filter);
   const dispatch = useDispatch();
 
-  const handleFilterChange = filter => {
-    dispatch(setFilter(filter));
+  const [activeFilter, setActiveFilter] = useState(filter);
+
+  const handleFilterChange = newFilter => {
+    dispatch(setFilter(newFilter));
+    setActiveFilter(newFilter);
   };
 
   return (
     <FilterWrapper>
       <FilterButton
-        variant="outline-primary"
         onClick={() => handleFilterChange('ALL')}
-        active={filter === 'ALL'}
+        active={activeFilter === 'ALL'}
       >
         All
       </FilterButton>
       <FilterButton
-        variant="outline-success"
         onClick={() => handleFilterChange('COMPLETED')}
-        active={filter === 'COMPLETED'}
+        active={activeFilter === 'COMPLETED'}
       >
         Completed
       </FilterButton>
       <FilterButton
-        variant="outline-danger"
         onClick={() => handleFilterChange('INCOMPLETE')}
-        active={filter === 'INCOMPLETE'}
+        active={activeFilter === 'INCOMPLETE'}
       >
         Incomplete
       </FilterButton>

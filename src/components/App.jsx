@@ -18,7 +18,7 @@ const App = () => {
       <Row className="justify-content-center">
         <Col xs={12} md={8} lg={6}>
           <Card>
-            <Card.Header as="h1" className="text-center">
+            <Card.Header as="h2" className="text-center">
               Task Management App
             </Card.Header>
             <Card.Body>

@@ -1,25 +1,37 @@
+import { ToggleButton } from 'react-bootstrap';
 import styled from 'styled-components';
 
 export const FilterWrapper = styled.div`
   display: flex;
   padding: 6px 10px;
   flex-direction: row;
-  /* align-items: flex-start; */
   gap: 10px;
   justify-content: center;
 `;
 
-export const FilterButton = styled.button`
-  border-radius: 16px;
-  border: 1px solid #e2e2e2;
-  padding: 8px 16px;
-  background-color: #e2e2e2;
-  color: #7c7c7c;
-  cursor: pointer;
+export const FilterButton = styled(ToggleButton)`
+  &.btn {
+    border: none;
+    border-radius: 16px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: #e2e2e2;
+    color: #7c7c7c;
 
-  &:hover,
-  &:focus {
-    background: #1f2937;
-    color: #ffffff;
+    &:hover {
+      background-color: #e2e2e2;
+      color: #7c7c7c;
+    }
+
+    &:focus {
+      background-color: #e2e2e2;
+      color: #7c7c7c;
+    }
+
+    &.btn-primary.active {
+      background-color: #1f2937;
+      color: #fff;
+    }
   }
 `;
