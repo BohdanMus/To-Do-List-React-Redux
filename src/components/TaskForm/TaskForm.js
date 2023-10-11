@@ -18,8 +18,8 @@ const TaskForm = () => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [showModal, setShowModal] = useState(false); // Додайте стан для відображення модального вікна
-  const [completed, setCompleted] = useState(false); // Додайте стан для статусу завдання (виконано/невиконано)
+  const [showModal, setShowModal] = useState(false);
+  const [completed, setCompleted] = useState(false);
 
   const handleShowModal = () => {
     setShowModal(true);
@@ -31,7 +31,7 @@ const TaskForm = () => {
 
   const handleSubmit = () => {
     if (title.trim() === '') {
-      return; // Валідація полів (назва не може бути порожньою).
+      return;
     }
 
     const newTask = {
@@ -45,7 +45,7 @@ const TaskForm = () => {
     setTitle('');
     setDescription('');
     setCompleted(false);
-    handleCloseModal(); // Закрийте модальне вікно після додавання завдання
+    handleCloseModal();
   };
 
   return (

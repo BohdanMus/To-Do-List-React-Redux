@@ -1,6 +1,6 @@
 const initialState = {
-  tasks: [], // Початковий стан для завдань
-  filter: 'ALL', // Початковий стан для фільтрації
+  tasks: [],
+  filter: 'ALL',
 };
 
 const taskReducer = (state = initialState, action) => {

@@ -4,23 +4,22 @@ import { NoTasksMessage } from './TaskList.styled';
 
 const TaskList = () => {
   const tasks = useSelector(state => state.tasks.tasks);
-  const filter = useSelector(state => state.tasks.filter); // Отримуємо значення фільтра
+  const filter = useSelector(state => state.tasks.filter);
 
-  // Фільтруємо завдання відповідно до фільтра
   const filteredTasks = tasks.filter(task => {
     if (filter === 'ALL') {
-      return true; // Показувати всі завдання
+      return true;
     } else if (filter === 'COMPLETED') {
-      return task.completed; // Показувати завдання, що виконані
+      return task.completed;
     } else if (filter === 'INCOMPLETE') {
-      return !task.completed; // Показувати невиконані завдання
+      return !task.completed;
     }
     return true;
   });
 
   return (
     <div>
-      {filteredTasks.length === 0 ? ( // Перевірка, чи масив порожній
+      {filteredTasks.length === 0 ? (
         <NoTasksMessage>No tasks available</NoTasksMessage>
       ) : (
         filteredTasks.map(task => <TaskItem key={task.id} task={task} />)
